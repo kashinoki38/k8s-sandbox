@@ -1,0 +1,44 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: "2020-05-28T20:31:43Z"
+  name: busybox
+  namespace: test
+  resourceVersion: "14170148"
+  selfLink: /apis/batch/v1beta1/namespaces/test/cronjobs/busybox
+  uid: 4d8ceb58-a49b-46a2-84ba-2dd321f17d62
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: busybox
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the kubernetes cluster
+            - -o
+            - yaml
+            image: busybox
+            imagePullPolicy: Always
+            name: busybox
+            resources: {}
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          restartPolicy: OnFailure
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+  schedule: '*/1 * * * *'
+  successfulJobsHistoryLimit: 3
+  suspend: false
+status:
+  lastScheduleTime: "2020-05-28T20:32:00Z"

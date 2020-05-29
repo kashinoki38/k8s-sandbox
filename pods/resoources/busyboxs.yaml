@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busyboxs
+spec:
+  containers:
+    - name: busybox1
+      image: busybox
+      args:
+        - /bin/sh
+        - -c
+        - echo hello;sleep 3600
+      resources: {}
+    - name: busybox2
+      image: busybox
+      resources: {}
+      args:
+        - /bin/sh
+        - -c
+        - echo hello;sleep 3600
