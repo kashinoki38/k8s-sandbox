@@ -1,0 +1,23 @@
+apiVersion: v1
+data:
+  config.txt: |
+    foo3=lili
+    foo4=l3l3
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-05-29T02:19:53Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:config.txt: {}
+    manager: kubectl.exe
+    operation: Update
+    time: "2020-05-29T02:19:53Z"
+  name: config2
+  namespace: default
+  resourceVersion: "72907"
+  selfLink: /api/v1/namespaces/default/configmaps/config2
+  uid: e9790da8-6519-4b23-ac7d-82611268b8a5
